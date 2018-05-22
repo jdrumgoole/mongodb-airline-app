@@ -53,12 +53,13 @@ if __name__ == "__main__":
         seats.add_flight(flight)
 
 
-    FlightParams=namedtuple( "Passenger", "flight_no seat_rows seat_width")
+    PassengerParams=namedtuple( "Passenger", "first_name last_name DOB locator")
+
     if args.addperson:
 
         passenger = PassengerParams(*args.addperson)
-        passenger
-        passengers.add_person( )
+        passenger = Person( passenger.first_name, passenger.last_name)
+        passengers.add_person( flight_no=passenger.flight_no )
     if args.addseat:
         flights.add_flight()
 
