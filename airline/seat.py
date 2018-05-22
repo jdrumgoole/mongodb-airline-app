@@ -23,8 +23,15 @@ class Seat(object):
     def deallocate(self):
         self._person = None
 
+    def __repr__(self):
+        return "{\n" + ",\n".join( " {} : {}".format(repr(k),repr(v)) for k,v in vars(self).items()) + "\n}"
+
     def dict(self):
+        if self._person:
+            p = self._person.dict()
+        else:
+            p = None
         return { "flight_no" : self._flight_no,
                  "seat_no"   : self._seat_no,
-                 "person"    : self._person.dict(),
+                 "person"    : p,
                  "ts"        : self._ts}
